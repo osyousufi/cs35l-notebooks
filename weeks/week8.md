@@ -621,8 +621,8 @@ Some important files and directories in the `.git` subdirectory:
 - `hooks/*` - executable scripts that Git will invoke at certain "pressure points" (important triggers, like making a commit). By default, there are no working hooks; default ones all end with `.sample`, which illustrate what you might want to put in such hooks.
 - `index` - Git's plan for the future, a list of planned changes for the next commit. This is in binary data.
 - `info/exclude` - addition to `.gitignore`
-- `logs` - keeps track of where the branches have been (histories of branch tip locations)
-- `objects` - where the actual "repository" is, where the object database is stored
+- `logs` - metahistory, keeps track of where the branches have been (histories of branch tip locations) (tells you of where HEAD was)
+- `objects` - where the actual "repository" is, where the object database is stored (object oriented database)
 - `refs` - where the branch tips and tags are (where all the "pointers" in the repository are)
 - `packed-refs` - optimized version of `refs`
 
