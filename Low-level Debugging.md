@@ -521,6 +521,22 @@ The summary screen displays information about memory leaks.
 
 * ➕ No special flags needed when compiling.
 * ➖ Much slower. Checking is also less extensive because Valgrind only has access to the machine code and not the underlying source code.
+* Valgrind pros vs cons:
+* Pros:
+● Exceptional memory leak detection and detailed debugging info
+● No code modification needed - works on compiled binaries
+● Catches many memory-related errors like use-after-free, buffer overflows
+● Works across multiple platforms (Linux, macOS, etc.)
+● Free and open source
+● Can track origins of uninitialized values
+● Built-in cache profiling and threading error detection
+Cons:
+● Significantly slows down program execution (typically 20-30x slower)
+● High memory overhead during analysis
+● Can be complex to interpret output, especially for beginners
+● Limited Windows support (primarily Linux-focused)
+● May produce false positives in some cases
+● Requires debug symbols for best results
 
 **BIG POINT:** Runtime checking is dicey. Even with all these tools, bugs can still slip through.
 
