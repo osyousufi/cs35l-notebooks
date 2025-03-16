@@ -530,7 +530,8 @@ The summary screen displays information about memory leaks.
 ● Free and open source
 ● Can track origins of uninitialized values
 ● Built-in cache profiling and threading error detection
-Cons:
+
+* Cons:
 ● Significantly slows down program execution (typically 20-30x slower)
 ● High memory overhead during analysis
 ● Can be complex to interpret output, especially for beginners
