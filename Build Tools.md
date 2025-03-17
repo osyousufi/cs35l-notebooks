@@ -56,11 +56,16 @@ foo: x.o y.o z.o
 
 <!-- From discussion notes. -->
 
-Makefiles support special variables within a rule: `$@` is the target of the rule and `$^` is the prerequisites of the rule. For example:
+Makefiles support special variables within a rule: `$@` is the target of the rule and `$^` is the prerequisites of the rule. `$<`: First dependency. For example:
 
 ```makefile
 foo: foo1.o foo2.o foo3.o
   g++ $^ -o $@
+```
+
+```
+main.o: main.c header.h
+  $(CC) -c $< -o $@ # $< is main.c, $@ is main.o
 ```
 
 Adding a `-` before a command means to keep going even if that command fails. This can be useful in cleaning commands, like:
