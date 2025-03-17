@@ -264,6 +264,38 @@ This can be problematic because you need to make sure that the dependencies in t
 
 Thus, instead of maintaining dependencies *by hand*, you should *calculate* them with some `make` preprocessor - a tool to automatically generate your Makefiles for you.
 
+```
+Useful make options
+● -n or --dry-run: Dry run mode. Prints the commands that would be executed without
+actually running them. Extremely useful for debugging and understanding Makefile
+behavior.
+● -t or --touch: Touch mode. Updates the modification times of targets as if the
+commands were executed, without actually running them. Useful for simulating a
+build.
+● -q or --question: Question mode. Checks if targets are up to date without building
+anything. Returns zero status if up-to-date, nonzero otherwise.
+● -f <file> or --file=<file>: Specifies a Makefile other than Makefile or makefile. Can be
+used multiple times to include multiple Makefiles.
+● -j <jobs> or --jobs=<jobs>: Specifies the number of jobs (commands) to run
+simultaneously. Significantly speeds up builds on multi-core systems.
+● -C <dir> or --directory=<dir>: Changes to the specified directory before reading the
+Makefiles or doing anything else. Useful for building in subdirectories.
+● -B or --always-make: Forces rebuilding of all targets, even if they are up to date.
+● -k or --keep-going: Continues building other targets even if errors occur.
+
+ When make remake targets? Out-of-date target.
+● Target Doesn't Exist
+○ If the target file doesn't exist, Make will always rebuild it.
+● Target is Older than Prerequisites:
+○ Make compares the modification time of the target file to the modification
+times of its prerequisites.
+○ If any prerequisite is newer than the target, Make considers the target out of
+date and rebuilds it.
+● Missing Prerequisite
+○ If a prerequisite file is missing, Make will try to rebuild it (if there's a rule for it)
+before rebuilding the target.
+○ If Make can't find a rule to build the missing prerequisite, it will issue an error.
+```
 
 ## Packaging Dependency
 
